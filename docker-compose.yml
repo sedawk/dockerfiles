@@ -1,0 +1,15 @@
+version: "3"
+services:
+    ubuntu-dev:
+        image: ubuntu:18.04
+	user: ${uid}:${gid}
+	environment:
+	    - USER=${user}
+	volumes:
+	    - /etc/group:/etc/group:ro
+	    - /etc/passwd:/etc/passwd:ro
+	    - /etc/shadow:/etc/shadow:ro
+	    - /etc/sudoers:/etc/sudoers:ro
+	    - ${home}:${home}:rw
+	working_dir: ${home}
+	
